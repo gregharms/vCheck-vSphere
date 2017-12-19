@@ -87,11 +87,22 @@ We are in the process of adding/consolidating more detailed documentation around
 
 We are in the process of adding/consolidating more detailed documentation around this. In the meantime, you can review the documentation that we do have inside the [README.md](README.md) file for the repo.
 
-## Gitter & Waffle
+## Internation Language Support
 
-We are using [![Join the chat at https://gitter.im/alanrenouf/vCheck-vSphere](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alanrenouf/vCheck-vSphere?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) for general discussion around the vCheck utility. This is a good place for general questions or minor issues that someone might be able to answer, on the spot. If something cannot be resolved in the chat, it may warrant the submission of an Issue.
+To add support for a specific language to the vCheck, you will have to do the following:
 
-We are also using Waffle.io to help track and resolve issues. You can visit the the dashboard [![Stories in Ready](http://badge.waffle.io/alanrenouf/vCheck-vSphere.png)](http://waffle.io/alanrenouf/vCheck-vSphere) to view or submit issues (you can also still use the GitHub web interface to submit/view issues).
+* Create a folder under the Lang folder. The folder shall have the language code of the language for which you are adding support.
+* Language strings are loaded from the data files (.psd1). The name of the data file shall correspond with the name of the .ps1 file where the language strings are loaded.
+* Language strings are loaded from the main vCheck.ps1 script and from several plugins
+* When a data file for a specific plugin is not found, the script logic will revert to en-US
+* Use the Use-Culture.ps1 script to test the language you added or updated
+
+The ultimate goal is to remove all language strings from the .ps1 files to data files, or .psd1 files.
+The initial examples did this for the main script (vCheck.ps1) and the plugin 79 (79 Find VMs in Uncontrolled Snapshot Mode.ps1).
+
+## Slack
+
+To join in discussions or ask questions, join the #vCheck channel on [VMware Code Slack Team](https://code.vmware.com/slack/).
 
 
 ## Style guidelines
